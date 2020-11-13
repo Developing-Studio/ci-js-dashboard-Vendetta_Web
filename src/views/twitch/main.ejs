@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("../etc/header.ejs") %>
+    <script>
+        let animation = (ele) => {
+            ele.style.animationPlayState = "running";
+            console.log(ele)
+        }
+        let binvite = (id) => {
+            window.open(`https://discord.com/oauth2/authorize?client_id=${id}&permissions=8&scope=bot`)
+        }
+        let sinvite = (code) => {
+            window.open(`https://discord.gg/${code}`)
+        }
+        let template = (code) => {
+            window.open(`https://discord.new/${code}`)
+        }
+    </script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        @keyframes mtitle {
+            from {
+                margin-left: 100%;
+            }
+
+            to {
+                margin-left: 0%;
+            }
+        }
+
+        @keyframes stitle {
+            from {
+                margin-left: -100%;
+            }
+
+            to {
+                margin-left: 0%;
+            }
+        }
+
+        @keyframes sub {
+            from {
+                font-size: 0;
+            }
+
+            to {
+                font-size: 3vw;
+            }
+        }
+
+        @keyframes buttons {
+            from {
+                border: 0;
+                margin: 0 0;
+                width: 10%;
+                height: 0;
+                font-size: 0;
+            }
+
+            to {
+                border: 1px solid #b9b9b9;
+                margin: 2vw 3vw;
+                width: 18vw;
+                height: 4vw;
+                font-size: 2vw;
+            }
+        }
+
+        section {
+            margin: 0 auto;
+            border-top: 1px solid white;
+            padding-bottom: 2vw;
+        }
+
+        section>.mtitle-sub {
+            text-align: center;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        .mtitle {
+            width: 100%;
+            text-align: center;
+            animation-name: mtitle;
+            animation-duration: 0.5s;
+        }
+
+        .mtitle-1 {
+            font-size: 6vw;
+        }
+
+        .mtitle-sub {
+            margin: 0 auto;
+            width: 50%;
+            font-size: 3vw;
+            border-bottom: 1px solid white;
+        }
+
+        .mtitle-des {
+            font-size: 2vw;
+        }
+
+        .info {
+            color: black;
+            font-size: 3vw;
+            margin: 0 auto;
+            margin-bottom: 2vw;
+        }
+
+        .hr {
+            margin: 0 auto;
+            border-bottom: 1px solid black;
+            width: 80%;
+        }
+
+        .stitle {
+            width: 100%;
+            font-size: 4vw;
+            text-align: center;
+            animation-name: stitle;
+            animation-duration: 0.5s;
+        }
+
+        .sub {
+            position: relative;
+            font-size: 3vw;
+            text-align: center;
+            animation-name: sub;
+            animation-duration: 0.5s;
+        }
+
+        .btns {
+            background-color: #111;
+            color: white;
+            border: 0;
+            margin: 0 0;
+            height: 0;
+            font-size: 0;
+            border-radius: 2vw;
+            cursor: pointer;
+            transition: .1s;
+            justify-content: center;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-name: buttons;
+        }
+
+        .btns:hover {
+            background-color: white;
+            color: black;
+            transition: .1s;
+        }
+
+        .btns:focus {
+            outline: none;
+        }
+
+        img {
+            width: 80%;
+        }
+
+        @keyframes list {
+            from {
+                margin-left: 100%;
+            }
+
+            to {
+                margin-left: 37%;
+            }
+        }
+
+        .list {
+            animation-name: list;
+            animation-duration: 0.5s;
+        }
+    </style>
+</head>
+
+<body onload="loaded()">
+    <div class="loader-back">
+        <div class="loader"></div>
+    </div>
+    <%- include("../etc/nav.ejs") %>
+    <%- include("../etc/goup.ejs") %>
+    <main>
+        <section id="main">
+            <div class="mtitle">
+                <p class="mtitle-1">
+                    Vendetta Twitch
+                </p>
+                <p class="mtitle-sub">
+                    재미있는 방송생활을 만들어드리겠습니다!
+                </p>
+                <p class="mtitle-des">
+                    아래 리스트들중
+                </p>
+                <p class="mtitle-des">
+                    관심있는 내용에 대한 박스를 클릭후
+                </p>
+                <p class="mtitle-des">
+                    원하는 정보를 얻어보세요!
+                </p>
+            </div>
+            <div class="list">
+                <li><a href="#bot">챗봇</a></li>
+                <li><a href="#template">방송 템플릿</a></li>
+                <li><a href="#tips">팁들</a></li>
+            </div>
+        </section>
+        <section id="bot">
+            <p class="stitle">
+                챗봇 리스트
+            <p class="sub">Vendetta에서 제공하는 챗봇으로</p>
+            <p class="sub">방송을 클린하게 만들어요!</p>
+            </p>
+            <div class="acc">
+                <button class="accordion">
+                    <span class="taccordion">WBOT</span>
+                </button>
+                <div class="panel">
+                    <p>Coming Soon..</p>
+                </div>
+            </div>
+        </section>
+        <section id="template">
+            <p class="stitle">
+                방송 템플릿
+            <p class="sub">Vendetta에서 제공하는 템플릿을 통해</p>
+            <p class="sub">빠르고 쉽게 방송을 시작해보세요!</p>
+            </p>
+            <div class="acc">
+                <button class="accordion">
+                    <span class="taccordion">OBS</span>
+                </button>
+                <div class="panel">
+                    <p>Xsplit을 사용하시는분들을 위해</p>
+                    <p>방송 템플릿을 준비중이에요!</p>
+                    <p>녹화용과 방송용을 따로 준비할 예정입니다!</p>
+                    <p>Coming Soon..</p>
+                </div>
+
+                <button class=" accordion">
+                    <span class="taccordion">Xsplit</span>
+                </button>
+                <div class="panel">
+                    <p>Xsplit을 사용하시는분들을 위해</p>
+                    <p>방송 템플릿을 준비중이에요!</p>
+                    <p>녹화용과 방송용을 따로 준비할 예정입니다!</p>
+                    <p>Coming Soon..</p>
+                </div>
+            </div>
+        </section>
+        <section id="tips">
+            <p class="stitle">
+                팁들
+            <p class="sub">방송하기전에 알아두면 좋은</p>
+            <p class="sub">좋은 팁들을 모아보았어요!</p>
+            </p>
+            <div class="acc">
+                <button class="accordion">
+                    <span class="taccordion">준비중..</span>
+                </button>
+                <div class="panel">
+                    <p>Coming Soon..</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include("../etc/footer.ejs") %>
+</body>
+
+</html>

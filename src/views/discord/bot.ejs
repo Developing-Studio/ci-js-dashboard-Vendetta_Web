@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("../etc/header.ejs") %>
+    <style>
+        .botsec {
+            border: 1px solid whitesmoke;
+        }
+
+        @media screen and (max-width: 900px) {
+            .botsec {
+                float: none;
+                width: 100%;
+                height: 10vw;
+                margin-left: 0;
+                margin-right: 0;
+                min-height: 30vh;
+            }
+
+            #wbot::before{
+                width: 100%;
+                height: 30%;
+            }
+
+            .bottitle {
+                font-size: 3vh;
+            }
+
+            .botbtn {
+                margin-top: 4vh;
+                font-size: 2vh;
+                width: 12vh;
+                height: 4vh;
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            .botsec {
+                float: left;
+                width: 32.5%;
+                margin-left: 0.5%;
+                min-height: calc(100vh - 27vw);
+            }
+
+            #wbot::before{
+                min-height: calc(100vh - 27vw);
+            }
+
+            .bottitle {
+                font-size: 3vw;
+            }
+
+            .botbtn {
+                margin-top: 4vw;
+                font-size: 2vw;
+                width: 10vw;
+                height: 4vw;
+            }
+        }
+
+        div {
+            margin: 0;
+        }
+
+        main {
+            margin-bottom: 1px;
+        }
+
+        .bottitle {
+            text-align: center;
+            margin-top: 5vw;
+        }
+
+        .botsec {
+            text-align: center;
+        }
+
+        .botbtn {
+            background: black;
+            border-radius: 50px;
+        }
+
+        .botbtn:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .botbtn:focus {
+            outline: none;
+        }
+
+        #wbot::before  {
+            background-image: url('/wbot.png');
+            background-size: cover;
+            background-position: center;
+            content: '';
+            position: absolute;
+            left: 1%;
+            right: 67%;
+            z-index: -1;
+            filter: blur(15px);
+        }
+    </style>
+    <script>
+        let move = (link) => {
+            window.location = `./${link}`
+        }
+        let mv = (link) => {
+            window.location = link
+        }
+    </script>
+</head>
+
+<body onload="loaded()">
+    <div class="loader-back">
+        <div class="loader"></div>
+    </div>
+    <%- include("../etc/nav.ejs") %>
+    <main>
+        <div id="wbot" class="botsec">
+            <div></div>
+            <p class="bottitle">WBOT</p>
+            <button
+                onclick="mv('https://discord.com/api/oauth2/authorize?client_id=518657304795676693&permissions=8&redirect_uri=https%3A%2F%2Fvendetta.tk%3A2313%2Fdiscord%2Fbot%2Fwbot&response_type=code&scope=bot%20identify')"
+                class="botbtn">초대하기</button>
+            <button onclick="move('./bot/wbot')" class="botbtn">웹대쉬보드</button>
+        </div>
+
+        <div class="botsec">
+            <p class="bottitle">GFD</p>
+            <button onclick="alert('제작중입니다.')" class="botbtn">초대하기</button>
+            <button onclick="alert('제작중입니다.')" class="botbtn">웹대쉬보드</button>
+        </div>
+
+        <div class="botsec">
+            <p class="bottitle">Coming Soon..</p>
+            <button onclick="alert('제작중입니다.')" class="botbtn">초대하기</button>
+            <button onclick="alert('제작중입니다.')" class="botbtn">웹대쉬보드</button>
+        </div>
+    </main>
+    <%- include("../etc/footer.ejs") %>
+</body>
+
+</html>

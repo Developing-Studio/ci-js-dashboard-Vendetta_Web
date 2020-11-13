@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("../../etc/header.ejs") %>
+    <style>
+        .functions {
+            padding-top: 20%;
+            text-align: center;
+        }
+
+        .sidebtn {
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body onload="loaded()">
+    <div class="loader-back">
+        <div class="loader"></div>
+    </div>
+    <%- include("../../etc/nav.ejs") %>
+    <main>
+        <section class="functions">
+            <a class="sidebtn">봇 정보</a>
+            <a class="sidebtn">봇 설정하러 가기</a>
+        </section>
+    </main>
+    <%- include("../../etc/footer.ejs") %>
+</body>
+
+</html>

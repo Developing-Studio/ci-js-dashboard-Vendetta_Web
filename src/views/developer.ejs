@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("./etc/header.ejs") %>
+    <style>
+        .developer {
+            text-align: center;
+            font-size: 4vw;
+        }
+
+        .lang {
+            text-align: center;
+            font-size: 4vw;
+        }
+
+        .info>h1 {
+            text-align: center;
+            font-size: 4vw;
+        }
+
+        .info {
+            font-size: 3vw;
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        section>div {
+            animation-name: on;
+            animation-duration: 1s;
+        }
+
+        section {
+            padding: 3vw;
+            border-top: 1px solid beige;
+        }
+
+        @keyframes on {
+            from {
+                font-size: 0;
+            }
+
+            to {
+                font-size: 4vw;
+            }
+        }
+    </style>
+</head>
+
+<body onload="loaded()">
+    <div class="loader-back">
+        <div class="loader"></div>
+    </div>
+    <%- include("./etc/nav.ejs") %>
+    <main>
+        <section>
+            <div class="developer">
+                <h1>개발자</h1>
+                <p>Vendetta[천마]</p>
+            </div>
+        </section>
+        <section>
+            <div class="lang">
+                <h1>주 개발 언어</h1>
+                <p>Node.js</p>
+            </div>
+        </section>
+        <section>
+            <div class="info">
+                <h1>개발자의 할말</h1>
+                <p>자그만한 장난 바이러스를 시작으로</p>
+                <p>조금식 조금식 성장해가며 여기까지 왔습니다.</p>
+                <p>어렸을땐 남에게 피해를 주는 장난꾸러기였지만</p>
+                <p>앞으론 여러분의 SNS에 활기를 주는</p>
+                <p>Plugin이 되겠습니다.</p>
+            </div>
+        </section>
+    </main>
+    <%- include("./etc/footer.ejs") %>
+</body>
+
+</html>

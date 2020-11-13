@@ -1,0 +1,445 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vendetta[<%=type%>]</title>
+<style>
+    body {
+        margin: 0;
+        background-color: #111;
+    }
+
+    @media screen and (max-width: 600px) {
+        .navb {
+            display: none;
+        }
+
+        .navs {
+            display: flex;
+        }
+    }
+
+    @media screen and (min-width: 600px) {
+        .navb {
+            display: flex;
+        }
+
+        .navs {
+            display: none;
+        }
+    }
+
+    main {
+        min-height: calc(100vh - 27vw);
+        margin-bottom: 3vw;
+    }
+
+    @font-face {
+        font-family: 'LAB디지털';
+        src: url('/LAB디지털.ttf');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        color: #fff;
+        font-family: LAB디지털;
+        animation-fill-mode: forwards;
+    }
+
+    a {
+        color: turquoise;
+    }
+
+    header {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #b9b9b9;
+    }
+
+    @keyframes goup {
+        from {
+            left: 100%;
+            top: 100%;
+        }
+
+        to {
+            left: 94%;
+            top: 90%;
+        }
+    }
+
+    .goup {
+        width: 4vw;
+        height: 4vw;
+        background: #000;
+        border: 1px solid #b9b9b9;
+        border-radius: 5vw;
+        font-size: 1.5vw;
+        position: fixed;
+        display: flex;
+        left: 94%;
+        top: 87%;
+        animation-name: goup;
+        animation-duration: 1s;
+    }
+
+    .goup:hover,
+    .goup:hover>.text {
+        cursor: pointer;
+        background: white;
+        color: black;
+    }
+
+    .text {
+        margin: 0 auto;
+        margin-top: 30%;
+    }
+
+    .title {
+        color: white;
+        font-size: 3vw;
+        margin-left: 10px;
+    }
+
+    .title:hover {
+        cursor: pointer;
+    }
+
+    .items {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .items a {
+        color: white;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebars {
+        display: flex;
+    }
+
+    .sidebtn {
+        font-size: 2vw;
+        margin: 5px 10px;
+        background: #000;
+        border: 1px solid #b9b9b9;
+        border-radius: 50px;
+        width: 13vw;
+        height: 3vw;
+        color: #b9b9b9;
+        cursor: pointer;
+        margin-top: auto;
+        margin-bottom: auto;
+        transition: .1s;
+    }
+
+    .sideimg {
+        border: 1px solid #b9b9b9;
+        border-radius: 50px;
+        height: 3vw;
+        margin-top: auto;
+        margin-bottom: auto;
+        transition: .1s;
+    }
+
+    .sidename {
+        margin: 0;
+        display: flex;
+        font-size: 1.5vw;
+        color: whitesmoke;
+        transform: .1s;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        padding-top: 4%;
+        background-color: rgba(255, 255, 255, 0.582);
+        /* min-width: 90%; */
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        padding: 12px 16px;
+        transform: .1s;
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .sidebtn:focus {
+        outline: none;
+    }
+
+    .sidebtn:hover {
+        border: 1px solid #fff;
+        background: #fff;
+        color: #000;
+        transition: .1s;
+    }
+
+    .slider {
+        font-size: 3vw;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    .slider:hover {
+        cursor: pointer;
+    }
+
+    .closebtn:hover {
+        cursor: pointer;
+    }
+
+    .slider>p {
+        animation-duration: 3s;
+        animation-name: slidein;
+    }
+
+    @keyframes slidein {
+        from {
+            margin-left: 100%;
+            width: 300%
+        }
+
+        to {
+            margin-left: 0%;
+            width: 100%;
+        }
+    }
+
+    .loader-back {
+        position: fixed;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .load-message {
+        font-size: 3vw;
+    }
+
+    .load-message2 {
+        position: relative;
+        font-size: 3vw;
+    }
+
+    .loader {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .animate-bottom {
+        position: relative;
+        -webkit-animation-name: animatebottom;
+        -webkit-animation-duration: 1s;
+        animation-name: animatebottom;
+        animation-duration: 1s
+    }
+
+    @-webkit-keyframes animatebottom {
+        from {
+            bottom: -100px;
+            opacity: 0
+        }
+
+        to {
+            bottom: 0px;
+            opacity: 1
+        }
+    }
+
+    @keyframes animatebottom {
+        from {
+            bottom: -100px;
+            opacity: 0
+        }
+
+        to {
+            bottom: 0;
+            opacity: 1
+        }
+    }
+
+    .footer {
+        width: 100%;
+        height: 20vw;
+        text-align: center;
+        background: #222;
+        color: #b6b6b6;
+        border-top: 1px solid #b9b9b9;
+    }
+
+    .footer-double {
+        margin-bottom: 1vw;
+        display: flex;
+    }
+
+    .footer-left {
+        margin-left: 30px;
+        width: 50%;
+        text-align: left;
+    }
+
+    .footer-left li {
+        margin-left: 30px;
+        font-size: 2vw;
+    }
+
+    .footer-right {
+        margin-left: 30px;
+        width: 50%;
+        text-align: left;
+    }
+
+    .footer-right li {
+        margin-left: 30px;
+        font-size: 2vw;
+    }
+
+    .footer-title {
+        font-size: 3vw;
+    }
+
+    .footer-copyright {
+        border-top: 1px solid #b9b9b9;
+        background-color: black;
+        font-size: 2vw;
+    }
+
+    .acc {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .accordion {
+        text-align: center;
+        margin: 0 auto;
+        background-color: #eee;
+        cursor: pointer;
+        padding: 1vw;
+        width: 100%;
+        font-size: 3vw;
+        text-align: left;
+        border: 1px solid black;
+        outline: none;
+        transition: 0.4s;
+    }
+
+    .taccordion {
+        color: #444;
+    }
+
+    .active,
+    .accordion:hover {
+        background-color: #ccc;
+    }
+
+    .panel {
+        border: 1px solid black;
+        text-align: center;
+        font-size: 2vw;
+        margin: 0 auto;
+        width: 99.6%;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    .panel>p {
+        color: black;
+        margin-bottom: 2vw;
+    }
+
+    .panel>img {
+        width: 60vw;
+        height: 36vw;
+    }
+
+    .list {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 3vw;
+    }
+
+    .ico {
+        left: 80%;
+        border-radius: 50px;
+        width: 10%;
+    }
+</style>
+<script>
+    let loaded = () => {
+        let load = document.querySelector(".loader-back");
+        var acc = document.querySelectorAll(".accordion");
+        if (load) {
+            load.remove()
+        }
+        if (acc) {
+            for (let i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "vw";
+                    }
+                });
+            }
+        }
+        document.getElementsByClassName("goup")[0].addEventListener("click", function () {
+            window.location = "#main"
+        })
+    }
+</script>

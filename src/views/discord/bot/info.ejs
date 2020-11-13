@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("../../etc/header.ejs") %>
+</head>
+
+<body onload="loaded()">
+    <div class="loader-back">
+        <div class="loader"></div>
+    </div>
+    <%- include("../../etc/nav.ejs") %>
+    <main>
+        <!--봇 상태-->
+        <p class="status"></p>
+        <!--디스코드와 봇의 핑-->
+        <p class="d-ping"></p>
+        <!--웹과 봇의 핑-->
+        <p class="w-ping"></p>
+    </main>
+    <%- include("../../etc/footer.ejs") %>
+</body>
+
+</html>

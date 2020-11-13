@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("./etc/header.ejs") %>
+    <style>
+        :focus {
+            outline: none;
+        }
+
+        section {
+            margin: 3vw;
+            text-align: center;
+        }
+
+        @keyframes welcome {
+            from {
+                font-size: 0;
+            }
+
+            to {
+                font-size: 6vw;
+            }
+        }
+
+        .sungtitle {
+            animation-name: welcome;
+            animation-duration: 0.5s;
+        }
+
+        .name {
+            animation-duration: 0.5s;
+            animation-name: name;
+            width: 100%;
+        }
+
+        .show {
+            font-size: 0;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-name: show;
+            margin-left: 0%;
+            width: 100%;
+        }
+
+        @keyframes show {
+            from {
+                font-size: 0;
+            }
+
+            to {
+                font-size: 3vw;
+            }
+        }
+
+        .btnsection {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btns {
+            background-color: #111;
+            color: white;
+            border: 0;
+            margin: 0 0;
+            width: 10%;
+            height: 0;
+            font-size: 0;
+            border-radius: 2vw;
+            cursor: pointer;
+            transition: .1s;
+            display: flex;
+            justify-content: center;
+            padding-top: 1vw;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-name: buttons;
+        }
+
+        @keyframes buttons {
+            from {
+                border: 0;
+                margin: 0 0;
+                width: 10%;
+                height: 0;
+                font-size: 0;
+            }
+
+            to {
+                border: 1px solid #b9b9b9;
+                margin: 2vw 3vw;
+                width: 18vw;
+                height: 4vw;
+                font-size: 2vw;
+            }
+        }
+
+        @keyframes svg {
+            from {
+                width: 0;
+                height: 0;
+            }
+
+            to {
+                width: 2vw;
+                height: 2vw;
+            }
+        }
+
+        .svg {
+            fill: white;
+            width: 0;
+            height: 0;
+            margin-right: 1vw;
+            transition: .1s;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-name: svg;
+        }
+
+
+        #discordbutton {
+            padding-top: 0.75vw;
+        }
+
+        #Layer_1 {
+            width: 2.5vw;
+            height: 2.5vw;
+        }
+
+        .btns:hover {
+            background-color: white;
+            color: black;
+            transition: .1s;
+        }
+
+        .btns:hover>.svg {
+            fill: black;
+        }
+    </style>
+</head>
+
+<body onload="loaded()">
+    <div class="loader-back">
+        <div class="loader"></div>
+    </div>
+    <%- include("./etc/nav.ejs") %>
+    <main>
+        <section>
+            <div class="sungtitle">
+                <p class="welcome">안녕하세요.</p>
+                <p class="name">Vendetta™입니다.</p>
+            </div>
+            <p class="show">더욱더 즐거운 SNS 생활을 만들어드리겠습니다.</p>
+        </section>
+        <section style="text-align:center">
+            <div class="btnsection">
+                <button class="btns" onclick="window.location = '/discord/main'" id="discordbutton">
+                    <svg class="svg" style="width: 0;height:0" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 245 240">
+                        <path
+                            d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z" />
+                        <path
+                            d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z" />
+                    </svg>
+                    Discord
+                </button>
+                <button class="btns" onclick="alert('제작중입니다.')">
+                    <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                    </svg>
+                    Youtube
+                </button>
+                <button class="btns" onclick="window.location = '/twitch/main'">
+                    <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                        <path
+                            d="M2.787 0l-2.089 5.568v22.255h7.652v4.177h4.177l4.167-4.177h6.26l8.349-8.344v-19.479zM5.568 2.781h22.953v15.301l-4.871 4.871h-7.651l-4.172 4.172v-4.172h-6.26zM13.219 16.697h2.781v-8.348h-2.781zM20.864 16.697h2.781v-8.348h-2.781z" />
+                    </svg>Tiwtch
+                </button>
+            </div>
+        </section>
+    </main>
+    <%- include("./etc/footer.ejs") %>
+</body>
+
+</html>

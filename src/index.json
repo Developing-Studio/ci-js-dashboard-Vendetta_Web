@@ -1,0 +1,11 @@
+{
+    "Discord": {
+        "Wbot": {
+            "guilds": {},
+            "error": []
+        }
+    },
+    "Twitch": {
+        "Wbot": {}
+    }
+}

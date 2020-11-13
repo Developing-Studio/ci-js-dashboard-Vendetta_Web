@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("../../etc/header.ejs") %>
+</head>
+
+<body onload="loaded()">
+    <div class="loader-back">
+        <div class="loader"></div>
+    </div>
+    <%- include("../../etc/nav.ejs") %>
+    <main>
+        <div class="guilds">
+            <div class="line"></div>
+            <div class="guild">
+                <img class="icon" src="" />
+                <p class="name"></p>
+                <svg class="manage?">
+                </svg>
+                <!--관리자일 경우-->
+                <a class="sbtn" href="/">관리하기</a>
+                <!--초대가 안됬을 경우-->
+                <a class="sbtn"
+                    href="https://discord.com/api/oauth2/authorize?client_id=518657304795676693&permissions=8&redirect_uri=https%3A%2F%2Fvendetta.tk%3A2313%2Fdiscord%2Fbot%2Fwbot&response_type=code&scope=bot%20identify">
+                    초대하기
+                </a>
+                <!--관리자가 아닐 경우-->
+                <a class="sbtn">Comming Soon..</a>
+            </div>
+        </div>
+    </main>
+    <%- include("../../etc/footer.ejs") %>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<header>
+    <div class="title" onclick="window.location= '/'">Vendetta</div>
+    <div class="navb">
+        <% if (wtype == 0) {%>
+        <button class="sidebtn" onclick="window.location = '/developer'">제작자정보</button>
+        <button class="sidebtn" onclick="window.location = '/info'">제작정보</button>
+        <% } else if (wtype == 1) { %>
+            <% if (login) { %>
+                <div class="dropdown">
+                    <p class="sidename">
+                        <img class="sideimg" src="https://cdn.discordapp.com/avatars/<%=login.id%>/<%=login.avatar%>"><%= login.username%></img>
+                    </p>
+                    <div class="dropdown-content">
+                        <button class="sidebtn" onclick="window.location = '/'">메인페이지로</button>        
+                    </div>
+                </div>
+            <% }else{ %>
+                <button class="sidebtn" onclick="window.location = '/'">메인페이지로</button>
+                <button class="sidebtn" onclick="window.location = '/discord/bot/login'">로그인</button>
+            <% } %>
+        <% } else if (wtype == 2) { %>
+            <% if (login) { %>
+                <% }else{ %>
+                    <button class="sidebtn" onclick="window.location = '/'">메인페이지로</button>
+                    <button class="sidebtn" onclick="window.location = '/youtube/bot/login'">로그인</button>
+                <% } %>
+        <% } else if (wtype == 3) { %>
+            <% if (login) { %>
+                <% }else{ %>
+                    <button class="sidebtn" onclick="window.location = '/'">메인페이지로</button>
+                    <button class="sidebtn" onclick="window.location = '/twitch/bot/login'">로그인</button>
+                <% } %>
+        <% } else if (wtype == 4) {%>
+            <button class="sidebtn" onclick="window.location = '/'">메인페이지로</button>
+        <% } %>
+    </div>
+    <div class="navs">
+        <h2 class="slider" onclick="openNav()">&equiv;</h2>
+    </div>
+    <nav class="items">
+        <a class="closebtn" onclick="closeNav()">&times;</a>
+            <% if (wtype == 0) {%>
+                <a href="/developer">제작자 정보</a>
+                <a href="/info">제작 정보</a>
+            <% } else if (wtype == 1) { %>
+                <% if (login) { %>
+                    <a><img class="ico" src="https://cdn.discordapp.com/avatars/<%=login.id%>/<%=login.avatar%>"></a>
+                    <a><%= login.username%></a>
+                    <a href="/">메인페이지로</a>
+                <% }else{ %>
+                    <a href="/">메인페이지로</a>
+                    <a href="/discord/login">로그인</a>
+                <% } %>
+            <% } else if (wtype == 2) { %>
+                <% if (login) { %>
+                    <% }else{ %>
+                        <a href="/">메인페이지로</a>
+                        <a href="/youtube/login">로그인</a>
+                    <% } %>
+            <% } else if (wtype == 3) { %>
+                <% if (login) { %>
+                    <% }else{ %>
+                        <a href="/">메인페이지로</a>
+                        <a href="/twitch/login">로그인</a>
+                    <% } %>
+            <% } else if (wtype == 4) { %>
+                <a href="/">메인페이지로</a>
+            <% } %>
+    </nav>
+    <script>
+        let item = document.getElementsByClassName("items")[0]
+        function openNav() {
+            item.style.width = "100%";
+        }
+
+        function closeNav() {
+            item.style.width = "0";
+        }
+    </script>
+</header>

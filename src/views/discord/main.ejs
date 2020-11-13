@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include("../etc/header.ejs") %>
+    <script>
+        let animation = (ele) => {
+            ele.style.animationPlayState = "running";
+            console.log(ele)
+        }
+        let binvite = (id) => {
+            window.open(`https://discord.com/oauth2/authorize?client_id=${id}&permissions=8&scope=bot`)
+        }
+        let sinvite = (code) => {
+            window.open(`https://discord.gg/${code}`)
+        }
+        let template = (code) => {
+            window.open(`https://discord.new/${code}`)
+        }
+    </script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        @keyframes mtitle {
+            from {
+                margin-left: 100%;
+            }
+
+            to {
+                margin-left: 0%;
+            }
+        }
+
+        @keyframes stitle {
+            from {
+                margin-left: -100%;
+            }
+
+            to {
+                margin-left: 0%;
+            }
+        }
+
+        @keyframes sub {
+            from {
+                font-size: 0;
+            }
+
+            to {
+                font-size: 3vw;
+            }
+        }
+
+        @keyframes buttons {
+            from {
+                border: 0;
+                margin: 0 0;
+                width: 10%;
+                height: 0;
+                font-size: 0;
+            }
+
+            to {
+                border: 1px solid #b9b9b9;
+                margin: 2vw 3vw;
+                width: 18vw;
+                height: 4vw;
+                font-size: 2vw;
+            }
+        }
+
+        section {
+            margin: 0 auto;
+            border-top: 1px solid white;
+            padding-bottom: 2vw;
+        }
+
+        section>.mtitle-sub {
+            text-align: center;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        .role {
+            text-align: left;
+            color: black
+        }
+
+        .role-list {
+            margin-top: 0;
+            width: 10%;
+            margin: 0 auto;
+            padding-bottom: 2vw;
+        }
+
+        .mtitle {
+            width: 100%;
+            text-align: center;
+            animation-name: mtitle;
+            animation-duration: 0.5s;
+        }
+
+        .mtitle-1 {
+            font-size: 6vw;
+        }
+
+        .mtitle-sub {
+            margin: 0 auto;
+            width: 40%;
+            font-size: 3vw;
+            border-bottom: 1px solid white;
+        }
+
+        .panel>.mtitle-des {
+            margin: 0 auto;
+            font-size: 3vw;
+            border-bottom: 1px solid white;
+        }
+
+        .mtitle-des {
+            font-size: 2vw;
+        }
+
+        .info {
+            color: black;
+            font-size: 3vw;
+            margin: 0 auto;
+            margin-bottom: 2vw;
+        }
+
+        .hr {
+            margin: 0 auto;
+            border-bottom: 1px solid black;
+            width: 80%;
+            margin-bottom: 2vw;
+        }
+
+        .hr>p {
+            color: black;
+        }
+
+        .stitle {
+            width: 100%;
+            font-size: 4vw;
+            text-align: center;
+            animation-name: stitle;
+            animation-duration: 0.5s;
+        }
+
+        .sub {
+            position: relative;
+            font-size: 3vw;
+            text-align: center;
+            animation-name: sub;
+            animation-duration: 0.5s;
+        }
+
+        .btns {
+            background-color: #111;
+            color: white;
+            border: 0;
+            margin: 0 0;
+            height: 0;
+            font-size: 0;
+            border-radius: 2vw;
+            cursor: pointer;
+            transition: .1s;
+            justify-content: center;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-name: buttons;
+        }
+
+        .btns:hover {
+            background-color: white;
+            color: black;
+            transition: .1s;
+        }
+
+        .btns:focus {
+            outline: none;
+        }
+
+        img {
+            width: 80%;
+        }
+
+        @keyframes list {
+            from {
+                margin-left: 100%;
+            }
+
+            to {
+                margin-left: 37%;
+            }
+        }
+
+        .list {
+            animation-name: list;
+            animation-duration: 0.5s;
+        }
+    </style>
+</head>
+
+<body onload="loaded()">
+    <div class="loader-back">
+        <div class="loader"></div>
+    </div>
+    <%- include("../etc/nav.ejs") %>
+    <%- include("../etc/goup.ejs") %>
+    <main>
+        <section id="main">
+            <div class="mtitle">
+                <p class="mtitle-1">
+                    Vendetta Discord
+                </p>
+                <p class="mtitle-sub">
+                    여러분의 디스코드 생활에 활기를!
+                </p>
+                <p class="mtitle-des">
+                    아래 리스트들중
+                </p>
+                <p class="mtitle-des">
+                    관심있는 내용에 대한 박스를 클릭후
+                </p>
+                <p class="mtitle-des">
+                    원하는 정보를 얻어보세요!
+                </p>
+            </div>
+            <div class="list">
+                <li><a href="#bot">챗봇</a></li>
+                <li><a href="#template">서버 템플릿</a></li>
+                <li><a href="#tips">팁들</a></li>
+            </div>
+        </section>
+        <section id="bot">
+            <p class="stitle">
+                챗봇 리스트
+            <p class="sub">Vendetta에서 제공하는 챗봇으로</p>
+            <p class="sub">서버를 멋지게 만들어보아요!</p>
+            </p>
+            <div class="acc">
+                <button class="accordion">
+                    <span class="taccordion">WBOT</span>
+                </button>
+                <div class="panel">
+                    <p class="mtitle-1">WBOT</p>
+                    <button class="btns" onclick="binvite('518657304795676693')">
+                        초대하기
+                    </button>
+                    <p>여러분의 서버를 안전히 지켜드리겠습니다.</p>
+                    <p>서버의 모든 관리는 WBOT에게 맡겨주세요.</p>
+                    <p>안전하게 관리해드리겠습니다.</p>
+                    <p class="mtitle-1">안전한 로깅 시스템</p>
+                    <p>서버에서 일어나는 이벤트들을</p>
+                    <p>WBOT이 기록해줍니다.</p>
+                    <p>이상한 이벤트가 감지될시 제제를 할 수 있도록</p>
+                    <p>유저 아이디를 제공합니다.</p>
+                    <p class="mtitle-1">강력한 제제 시스템</p>
+                    <p>서버 커스텀을 통한 유저아이디 입장 제제와</p>
+                    <p>Vendetta™에서 제공하는</p>
+                    <p>블랙 리스트를 통해 불량 유저들을</p>
+                    <p>쉽고 빠르게 제제하세요!</p>
+                    <p class="mtitle-1">웹 대쉬보드 지원!</p>
+                    <p><a href="./bot">웹 대쉬보드</a>에서</p>
+                    <p>봇을 간단히 설정할 수 있게</p>
+                    <p>여러분의 편의성을 위해 지원되고 있습니다!</p>
+                </div>
+
+                <button class="accordion">
+                    <span class="taccordion">GWD</span>
+                </button>
+                <div class="panel">
+                    <p>서버를 더욱더 재미있게 할 게임봇</p>
+                    <p>레벨, 포인트, 돈을 이용하여 유저들과의</p>
+                    <p>관계를 더욱더 가깝게 해보세요!</p>
+                    <p>Coming Soon..</p>
+                </div>
+            </div>
+        </section>
+        <section id="template">
+            <p class="stitle">
+                서버 템플릿
+            </p>
+            <p class="sub">Vendetta에서 제공하는 템플릿을 통해</p>
+            <p class="sub">여러분만의 커뮤니티를 제작해보세요!</p>
+            <div class="acc">
+                <button class="accordion">
+                    <span class="taccordion">커뮤니티용</span>
+                </button>
+                <div class="panel">
+                    <p class='mtitle-1'>Vendetta 커뮤니티 템플릿</p>
+                    <button class="btns" onclick="sinvite('BPYNuZZ')">
+                        구경하기
+                    </button>
+                    <button class="btns" onclick="template('XfcfXbTWVsAz')">
+                        템플릿 복사하기
+                    </button>
+                    <div class="hr">
+                        <p>커뮤니티에서 필요한 내용만 쏙쏙 골랐습니다!</p>
+                        <p class="stitle">역할 리스트</p>
+                        <ol class="role-list">
+                            <li class="role">관리자</li>
+                            <li class="role">봇</li>
+                            <li class="role">유저</li>
+                            <li class="role">병아리</li>
+                        </ol>
+                        <p class="info">미리보기</p>
+                    </div>
+                    <img src="/community_template.png">
+                </div>
+
+                <button class=" accordion">
+                    <span class="taccordion">방송용</span>
+                </button>
+                <div class="panel">
+                    <p>Coming Soon..</p>
+                </div>
+            </div>
+        </section>
+        <section id="tips">
+            <p class="stitle">
+                팁들
+            <p class="sub">디스코드를 사용할때 좋은</p>
+            <p class="sub">팁들을 모아보았어요!</p>
+            </p>
+            <div class="acc">
+                <button class="accordion">
+                    <span class="taccordion">안전한 서버 설정</span>
+                </button>
+                <div class="panel">
+                    <p>서버의 보안을 보다 안전히 하는방법에 대해</p>
+                    <p>역할설정과 서버 기본설정을 하는법을 설명할 예정입니다.</p>
+                    <p>Coming Soon..</p>
+                </div>
+
+                <button class="accordion">
+                    <span class="taccordion">글씨를 이쁘게 쓰는법</span>
+                </button>
+                <div class="panel">
+                    <p>디스코드의 마크다운을 이용해서 텍스트를 꾸미는법을</p>
+                    <p>설명할 예정입니다.</p>
+                    <p>참고할 자료들</p>
+                    <p><a
+                            href="https://support.discord.com/hc/ko/articles/210298617-%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%ED%85%8D%EC%8A%A4%ED%8A%B8-101-%EC%B1%84%ED%8C%85-%EC%84%9C%EC%8B%9D-%EA%B5%B5%EA%B2%8C-%EC%9D%B4%ED%83%A4%EB%A6%AD-%EB%B0%91%EC%A4%84-">출처
+                            디스코드</a></p>
+                    <p><a href="https://gist.github.com/matthewzring/9f7bbfd102003963f9be7dbcf7d40e51">출처 깃허브
+                            matthewzring</a></p>
+                    <p>Coming Soon..</p>
+                </div>
+
+                <button class="accordion">
+                    <span class="taccordion">디스코드를 여러개 키는 방법[PC]</span>
+                </button>
+                <div class="panel">
+                    <div class="hr">
+                        <p>아래 내용은 디스코드에서</p>
+                        <p><a
+                                href="https://support.discord.com/hc/en-us/articles/360035675191-Desktop-PTB-and-Canary-Clients">공식</a>으로
+                            지원중인 내용을</p>
+                        <p>베이스 삼아 작성하였습니다</p>
+                    </div>
+                    <p class="stitle">디스코드를 여러개 키는 방법</p>
+                    <p>디스코드에서는 일반 디스코드외에</p>
+                    <p>공개 테스트 버전과 Canary라는 버전의 디스코드를</p>
+                    <p>공식으로 지원하고 있습니다.</p>
+                    <p>다운로드는 각각</p>
+                    <p>
+                    <p class="mtitle-des">공개 테스트 버전</p>
+                    <li><a href="https://discord.com/api/download/ptb?platform=win ">Windows 버전 다운로드</a>
+                    </li>
+                    <li><a href="https://discord.com/api/download/ptb?platform=osx ">Mac 버전 다운로드</a></li>
+                    <li><a href="https://discord.com/api/download/ptb?platform=linux&format=deb ">Linux deb 버전 다운로드</a>
+                    </li>
+                    <li><a href="https://discord.com/api/download/ptb?platform=linux&format=tar.gz ">Linux tar.gz 버전
+                            다운로드</a></li>
+                    </p>
+                    <p>
+                    <p class="mtitle-des">Canary 테스트 버전</p>
+                    <li><a href="https://discord.com/api/download/canary?platform=win ">Windows 버전 다운로드</a>
+                    </li>
+                    <li><a href="https://discord.com/api/download/canary?platform=osx ">Mac 버전 다운로드</a></li>
+                    <li><a href="https://discord.com/api/download/canary?platform=linux&format=deb ">Linux deb 버전
+                            다운로드</a>
+                    </li>
+                    <li><a href="https://discord.com/api/download/canary?platform=linux&format=tar.gz ">Linux tar.gz 버전
+                            다운로드</a></li>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include("../etc/footer.ejs") %>
+</body>
+
+</html>

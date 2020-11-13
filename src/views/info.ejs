@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .tools {
+            font-size: 4vw;
+            text-align: center;
+        }
+
+        .icons {
+            font-size: 4vw;
+            text-align: center;
+        }
+
+        .fonts {
+            font-size: 4vw;
+            text-align: center;
+        }
+
+        .modules {
+            margin: 0 auto;
+            width: 70%;
+            font-size: 4vw;
+            text-align: center;
+        }
+
+        .modules>li {
+            text-align: left;
+        }
+
+        .studing {
+            margin: 0 auto;
+            width: 70%;
+            font-size: 4vw;
+            text-align: center;
+        }
+
+        .studing>li {
+            text-align: left;
+        }
+
+        section>div {
+            animation-name: on;
+            animation-duration: 1s;
+        }
+
+        section {
+            padding: 3vw;
+            border-top: 1px solid beige;
+        }
+
+        @keyframes on {
+            from {
+                font-size: 0;
+            }
+
+            to {
+                font-size: 4vw;
+            }
+        }
+    </style>
+    <%- include("./etc/header.ejs") %>
+</head>
+
+<body onload="loaded()">
+    <div class="loader-back">
+        <div class="loader"></div>
+    </div>
+    <%- include("./etc/nav.ejs") %>
+    <main>
+        <section>
+            <div class="tools">
+                <h1>사용된 웹 제작 도우미</h1>
+                <li><a href="https://jquery.com/">Jquery</a></li>
+            </div>
+        </section>
+        <section>
+            <div class="icons">
+                <h1>사용된 아이콘들에 대한 출처</h1>
+                <li><a href="https://discord.com/branding">Discord</a></li>
+                <li><a href="https://www.youtube.com/about/brand-resources/#logos-icons-colors">Youtube</a></li>
+                <li><a href="https://brand.twitch.tv/">Twitch</a></li>
+            </div>
+        </section>
+        <section>
+            <div class="fonts">
+                <h1>사용된 폰트에 대한 출처</h1>
+                <li><a href="https://noonnu.cc/font_page/451">폰트랩 - LAB디지털</a></li>
+                <li><a href="https://noonnu.cc/font_page/442">펀플로X산돌 - 빛의계승자체 Bold</a></li>
+            </div>
+        </section>
+        <section>
+            <div class="modules">
+                <h1>Discord</h1>
+                <li>@discordjs/opus: ^0.3.2</li>
+                <li>canvas: ^2.6.1</li>
+                <li>discord.js: ^12.4.1</li>
+                <li>ffmpeg-static: ^4.2.7</li>
+                <li>fs: 0.0.1security: </li>
+                <li>moment-timezone: ^0.5.31</li>
+                <li>path: ^0.12.7</li>
+                <li>passport-discord: ^0.1.4</li>
+                <li>self-reload-json: ^0.4.0</li>
+                <li>yt-search: ^2.3.3</li>
+                <li>ytdl-core: ^3.4.2</li>
+                <h1>Youtube</h1>
+                <li>준비중</li>
+                <h1>Twitch</h1>
+                <li>self-reload-json: ^0.4.0</li>
+                <li>moment-timezone: ^0.5.31</li>
+                <li>passport-twitch-latest: ^1.0.0</li>
+                <li>node-fetch: ^2.6.1</li>
+                <li>twitch-bot: ^1.3.5</li>
+                <li>querystring: ^0.2.0</li>
+            </div>
+        </section>
+        <section>
+            <div class="studing">
+                <h1>웹 공부 자료 출처</h1>
+                <li><a href="https://www.w3schools.com/">w3schools</a></li>
+                <li><a href="https://developer.mozilla.org/">mozilla</a></li>
+                <li><a href="https://opentutorials.org/">생활코딩</a></li>
+            </div>
+        </section>
+    </main>
+    <%- include("./etc/footer.ejs") %>
+</body>
+
+</html>
