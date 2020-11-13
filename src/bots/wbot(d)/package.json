@@ -1,0 +1,23 @@
+{
+  "name": "wbot_discord",
+  "version": "1.0.0",
+  "description": "Vendetta Team's Discord Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vendetta[천마]",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "canvas": "^2.6.1",
+    "discord.js": "^12.4.1",
+    "ffmpeg-static": "^4.2.7",
+    "fs": "0.0.1-security",
+    "moment-timezone": "^0.5.31",
+    "path": "^0.12.7",
+    "self-reload-json": "^0.4.0",
+    "yt-search": "^2.3.3",
+    "ytdl-core": "^3.4.2"
+  }
+}

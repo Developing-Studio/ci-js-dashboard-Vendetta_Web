@@ -1,0 +1,11 @@
+{
+    "token": "Discord Bot Token",
+    "prefix": "prefix",
+    "playing": "custom playing",
+    "playtype": "PLAYING",
+    "streamlink": "",
+    "status": "idle",
+    "manager": [
+        "manager's uid"
+    ]
+}
