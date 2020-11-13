@@ -1,0 +1,24 @@
+{
+    "Discord": {
+        "ClientID": "clientid",
+        "ClientSecret": "clientsecret",
+        "CallbackURL": "callbackurl",
+        "Scopes": [
+            "scopes"
+        ]
+    },
+    "Twitch": {
+        "ClientID": "clientid",
+        "ClientSecret": "clientsecret",
+        "CallbackURL": "callbackurl",
+        "Scopes": [
+            "scopes"
+        ]
+    },
+    "Express": {
+        "Secret": "secret",
+        "SaveUninitialized": true,
+        "Resave": false,
+        "port": 7777
+    }
+}
