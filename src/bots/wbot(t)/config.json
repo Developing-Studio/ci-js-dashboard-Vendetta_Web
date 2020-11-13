@@ -1,0 +1,9 @@
+{
+    "botname": "botname",
+    "botoauth": "botoauth",
+    "channels": [
+        "user's channel name"
+    ],
+    "client_id": "client_id",
+    "prefix": "prefix"
+}
